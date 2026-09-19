@@ -25,3 +25,8 @@ models:
       +schema: marts
       +materialized: table
 
+
+vars:
+  # Fecha de la tasa de referencia para el revenue a moneda constante.
+  # En producción la definiría finanzas (tasa presupuestada o inicio del año fiscal).
+  fx_constant_rate_date: "2024-06-01"

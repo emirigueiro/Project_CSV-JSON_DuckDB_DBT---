@@ -5,7 +5,7 @@ version: 2
 
 models:
   - name: stg_customers
-    description: Clientes. Un registro por cliente.
+    description: CUSTOMERS. 1 record per customer.
     columns:
       - name: customer_id
         description: Clave del cliente.
@@ -13,21 +13,18 @@ models:
           - unique
           - not_null
       - name: email
-        description: Email normalizado a minúsculas.
       - name: registered_at
-        description: Fecha de registro del cliente.
       - name: country
-        description: País del cliente.
+    
 
   - name: stg_orders
     description: >
-      Cabecera de órdenes. Un registro por orden. La moneda y el total vienen
-      del sistema de origen sin validar; ver tests de severidad warn.
+      Orders. 1 record per order. The total between the order header and the sum of its lines is not guaranteed to match.
     columns:
       - name: order_id
         description: >
-          Clave de la orden. El test de relationships hacia stg_order_items
-          detecta órdenes sin líneas de ítems (warning: problema conocido).
+          Order key. The relationships test towards stg_order_items
+          detects orders without line items (warning: known issue).
         data_tests:
           - unique
           - not_null
@@ -35,8 +32,8 @@ models:
               arguments:
                 to: ref('stg_order_items')
                 field: order_id
+                severity: warn
       - name: customer_id
-        description: Cliente que realizó la orden.
         data_tests:
           - not_null
           - relationships:
@@ -44,15 +41,14 @@ models:
                 to: ref('stg_customers')
                 field: customer_id
       - name: ordered_at
-        description: Timestamp de la orden (zona horaria no documentada en origen).
         data_tests:
           - not_null:
               config:
                 severity: warn
       - name: order_date
-        description: Fecha de la orden (sin hora).
+        description: Order date (with out time).
       - name: order_total_amount
-        description: Total informado en la cabecera, en la moneda de la orden.
+        description: Total amount of the order.
         data_tests:
           - not_null:
               config:
@@ -62,8 +58,8 @@ models:
                 severity: warn
       - name: currency_code
         description: >
-          Moneda de la orden. Se espera que exista en la API de tipo de cambio;
-          los códigos inválidos (XYZ, ABC, QWE) se reportan como warning.
+          Currency of the order. It is expected to exist in the exchange rate API;
+          invalid codes (XYZ, ABC, QWE) are reported as warnings.
         data_tests:
           - not_null
           - relationships:
@@ -74,8 +70,8 @@ models:
                 severity: warn
       - name: order_status
         description: >
-          Estado de la orden. Hoy todas son 'completed'. Un valor nuevo se
-          reporta como warning; el revenue elegible se filtra en el modelo.
+          Order status. Today all are 'completed'. A new value is
+          reported as a warning; the eligible revenue is filtered in the model.
         data_tests:
           - accepted_values:
               arguments:
@@ -84,15 +80,15 @@ models:
                 severity: warn
 
   - name: stg_order_items
-    description: Líneas de orden. Un registro por línea.
+    description: Order lines. One record per line.
     columns:
       - name: order_item_id
-        description: Clave de la línea.
+        description: Line KEY.
         data_tests:
           - unique
           - not_null
       - name: order_id
-        description: Orden a la que pertenece la línea.
+        description: Order to which the line belongs.
         data_tests:
           - not_null
           - relationships:
@@ -101,8 +97,8 @@ models:
                 field: order_id
       - name: product_id
         description: >
-          Producto vendido. NO es una FK garantizada en origen: algunas líneas
-          referencian productos que no están en el catálogo (warning).
+          Product sold. It is not a guaranteed FK in the source: some lines
+          reference products that are not in the catalog (warning).
         data_tests:
           - not_null
           - relationships:
@@ -112,19 +108,17 @@ models:
               config:
                 severity: warn
       - name: quantity
-        description: Unidades vendidas.
         data_tests:
           - not_null
           - positive_value
       - name: unit_price
-        description: Precio unitario en la moneda de la línea.
         data_tests:
           - not_null
           - positive_value
       - name: currency_code
         description: >
-          Moneda de la línea. Puede diferir de la moneda de su orden; los
-          códigos inválidos se reportan como warning.
+          Currency of the line. It may differ from the currency of its order; invalid
+          codes are reported as warnings.
         data_tests:
           - not_null
           - relationships:
@@ -135,10 +129,10 @@ models:
                 severity: warn
 
   - name: stg_products
-    description: Catálogo de productos. Un registro por producto.
+    description: Product catalog. One record per product.
     columns:
       - name: product_id
-        description: Clave del producto.
+        description: Product KEY.
         data_tests:
           - unique
           - not_null
@@ -151,13 +145,11 @@ models:
               config:
                 severity: warn
       - name: base_price
-        description: Precio de lista del catálogo.
         data_tests:
           - positive_value:
               config:
                 severity: warn
       - name: base_price_currency_code
-        description: Moneda del precio de lista.
         data_tests:
           - not_null:
               config:
@@ -165,11 +157,11 @@ models:
 
   - name: stg_fx_rates
     description: >
-      Tasas de cambio aplanadas desde las respuestas de la API. Un registro
-      por fecha + moneda origen + moneda destino.
+      Exchange rates flattened from the API responses. One record
+      per date + source currency + target currency.
     columns:
       - name: fx_rate_id
-        description: Clave compuesta currency_from_currency_to_fecha.
+        description: Composite key currency_from_currency_to_fecha.
         data_tests:
           - unique
           - not_null
@@ -189,7 +181,6 @@ models:
               config:
                 severity: warn
       - name: rate
-        description: Unidades de currency_to por 1 unidad de currency_from.
         data_tests:
           - not_null:
               config:

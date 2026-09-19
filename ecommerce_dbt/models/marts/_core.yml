@@ -1,0 +1,176 @@
+version: 2
+
+# Star schema. Las FKs de los hechos se testean contra sus dimensiones con
+# severidad error: los problemas del origen (productos fuera de catálogo,
+# monedas inválidas) ya se manejan con miembros "desconocidos" en las
+# dimensiones, así que acá la integridad referencial debe ser total.
+
+models:
+  # ---------------- Dimensiones ----------------
+  - name: dim_products
+    description: >
+      Productos del catálogo más un miembro "Unknown product (id N)" por cada
+      product_id vendido que no existe en el catálogo (is_in_catalogue = false).
+    columns:
+      - name: product_id
+        data_tests: [unique, not_null]
+      - name: product_name
+        data_tests: [not_null]
+      - name: category
+        description: "'Unknown' para productos fuera de catálogo."
+        data_tests: [not_null]
+      - name: is_in_catalogue
+        data_tests: [not_null]
+
+  - name: dim_customers
+    description: Clientes. Un registro por cliente.
+    columns:
+      - name: customer_id
+        data_tests: [unique, not_null]
+
+  - name: dim_currencies
+    description: >
+      Monedas presentes en órdenes, líneas y tasas, incluidos los códigos
+      inválidos del origen como miembros marcados (is_valid_currency = false).
+    columns:
+      - name: currency_code
+        data_tests: [unique, not_null]
+      - name: is_valid_currency
+        description: La moneda tiene tasa de cambio a USD disponible.
+        data_tests: [not_null]
+      - name: is_reporting_currency
+        description: Moneda de reporte (USD).
+
+  - name: dim_date
+    description: Calendario diario que cubre los años completos con órdenes.
+    columns:
+      - name: date_day
+        data_tests: [unique, not_null]
+
+  - name: dim_hour
+    description: >
+      Horas del día (0-23) con etiqueta y franja horaria. La zona horaria de
+      los timestamps de origen no está documentada.
+    columns:
+      - name: hour_of_day
+        data_tests: [unique, not_null]
+      - name: daypart
+        data_tests: [not_null]
+
+  # ---------------- Hechos ----------------
+  - name: fct_order_items
+    description: >
+      Hecho de líneas de orden (grano: línea). Base de la pregunta 1.
+      Guarda el importe en moneda original, en USD a la tasa vigente y en USD
+      a moneda constante, junto con la tasa aplicada y flags de calidad.
+    columns:
+      - name: order_item_id
+        data_tests: [unique, not_null]
+      - name: order_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('fct_orders')
+                field: order_id
+      - name: product_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: product_id
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+      - name: currency_code
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_currencies')
+                field: currency_code
+      - name: order_date
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_day
+      - name: order_hour
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_hour')
+                field: hour_of_day
+      - name: line_amount_usd
+        description: USD a la tasa vigente en la fecha de la orden. Nulo si la moneda es inválida.
+      - name: line_amount_usd_constant
+        description: USD a la tasa de referencia fija (var fx_constant_rate_date).
+
+  - name: fct_orders
+    description: >
+      Hecho de órdenes (grano: orden, incluye órdenes sin líneas). Base de la
+      pregunta 2.
+    columns:
+      - name: order_id
+        data_tests: [unique, not_null]
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+      - name: currency_code
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_currencies')
+                field: currency_code
+      - name: order_date
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_day
+      - name: order_hour
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_hour')
+                field: hour_of_day
+      - name: order_total_usd
+        description: Total de cabecera en USD. Nulo si la moneda es inválida.
+
+  - name: fct_fx_rates
+    description: >
+      Hecho de tasas de cambio a USD (grano: moneda + fecha de tasa). Permite
+      analizar la evolución de las tasas y el efecto cambiario.
+    columns:
+      - name: fx_rate_to_usd_id
+        data_tests: [unique, not_null]
+      - name: currency_code
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_currencies')
+                field: currency_code
+      - name: rate_date
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_day
+      - name: rate_to_usd
+        data_tests: [not_null, positive_value]

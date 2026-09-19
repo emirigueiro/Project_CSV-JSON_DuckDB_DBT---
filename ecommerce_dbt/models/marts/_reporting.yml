@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: rpt_product_performance
+    description: >
+      Pregunta 1: desempeño por producto (grano: producto). Unidades vendidas,
+      revenue en USD (tasa real y moneda constante), participación y rankings.
+      Solo órdenes con revenue elegible. Las unidades incluyen líneas con
+      moneda inválida; el revenue no (ver revenue_coverage_pct).
+    columns:
+      - name: product_id
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: product_id
+      - name: units_sold
+        data_tests: [not_null, positive_value]
+      - name: revenue_usd
+        description: Revenue en USD a la tasa vigente (solo líneas con moneda válida).
+        data_tests: [not_null]
+      - name: revenue_usd_constant
+        description: Revenue en USD a la tasa de referencia fija.
+      - name: fx_effect_usd
+        description: revenue_usd - revenue_usd_constant (efecto cambiario).
+      - name: revenue_coverage_pct
+        description: Proporción de líneas del producto con moneda válida (convertibles a USD).
+      - name: rank_by_units
+        description: Ranking por unidades vendidas (1 = más vendido).
+        data_tests: [not_null]
+      - name: rank_by_revenue
+        description: Ranking por revenue en USD (1 = mayor revenue).
+        data_tests: [not_null]
+
+  - name: rpt_sales_by_hour
+    description: >
+      Pregunta 2: órdenes y revenue por hora del día × día de la semana
+      (168 filas, incluye combinaciones sin ventas). Métrica principal: órdenes.
+      Zona horaria no documentada en origen.
+    columns:
+      - name: slot_key
+        description: day_of_week * 100 + hour_of_day.
+        data_tests: [unique, not_null]
+      - name: hour_of_day
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_hour')
+                field: hour_of_day
+      - name: day_of_week
+        description: Día ISO (1 = lunes, 7 = domingo).
+        data_tests: [not_null]
+      - name: orders
+        data_tests: [not_null]
+      - name: revenue_usd
+        description: Total de cabecera en USD (solo monedas válidas).
+      - name: avg_order_value_usd
+        description: Ticket promedio en USD (sobre órdenes con moneda válida).
+
+  - name: rpt_data_quality
+    description: >
+      Resumen de problemas de calidad: filas afectadas, manejo aplicado y
+      pregunta de negocio impactada. Alimenta el panel de calidad del dashboard.
+    columns:
+      - name: check_name
+        data_tests: [unique, not_null]

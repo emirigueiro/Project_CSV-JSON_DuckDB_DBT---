@@ -1,0 +1,100 @@
+version: 2
+
+models:
+  - name: int_fx_rates_to_usd
+    description: >
+      Tasas de conversión a USD por moneda y fecha, con rango de vigencia
+      [valid_from, valid_to). Combina tasas directas (base = moneda), inversas
+      (1 / tasa desde USD) e identidad (USD = 1). La primera tasa de cada
+      moneda se extiende hacia atrás para cubrir órdenes previas a la API.
+    columns:
+      - name: fx_rate_to_usd_id
+        description: Clave moneda_fecha.
+        data_tests:
+          - unique
+          - not_null
+      - name: currency_code
+        data_tests:
+          - not_null
+      - name: rate_to_usd
+        description: USD equivalentes a 1 unidad de currency_code.
+        data_tests:
+          - not_null
+          - positive_value
+      - name: fx_rate_source
+        description: Origen de la tasa (identity, direct, inverse).
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['identity', 'direct', 'inverse']
+      - name: valid_from
+        description: Inicio de vigencia (inclusive).
+        data_tests:
+          - not_null
+      - name: valid_to
+        description: Fin de vigencia (exclusivo).
+        data_tests:
+          - not_null
+
+  - name: int_order_items_enriched
+    description: >
+      Líneas de orden enriquecidas con orden, producto y tasa de cambio, con el
+      importe convertido a USD y flags de calidad. Mismo grano que
+      stg_order_items: no se descarta ninguna fila.
+    columns:
+      - name: order_item_id
+        description: >
+          Clave de la línea. El test unique protege el grano: si los rangos de
+          vigencia de las tasas se superpusieran, el join duplicaría líneas.
+        data_tests:
+          - unique
+          - not_null
+      - name: line_amount
+        description: quantity × unit_price, en la moneda de la línea.
+      - name: line_amount_usd
+        description: Importe de la línea en USD. Nulo si la moneda no tiene tasa.
+      - name: fx_rate_to_usd
+        description: Tasa aplicada (moneda de la línea → USD).
+      - name: is_valid_currency
+        description: La moneda de la línea tiene tasa de cambio disponible.
+        data_tests:
+          - not_null
+      - name: is_in_catalogue
+        description: El product_id existe en el catálogo.
+        data_tests:
+          - not_null
+      - name: is_currency_mismatch
+        description: La moneda de la línea difiere de la moneda de su orden.
+      - name: is_fx_rate_backfilled
+        description: La orden es anterior a la primera tasa disponible; se usó esa primera tasa.
+      - name: is_revenue_eligible
+        description: La orden está en un estado que cuenta como revenue (completed).
+
+  - name: int_orders_enriched
+    description: >
+      Órdenes con el total de cabecera convertido a USD, totales agregados de
+      sus líneas y flags de calidad. Mismo grano que stg_orders.
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+      - name: order_total_usd
+        description: Total de cabecera en USD. Nulo si la moneda no tiene tasa.
+      - name: lines_amount
+        description: Suma de las líneas en moneda local. Nulo si la orden no tiene líneas.
+      - name: lines_amount_usd
+        description: Suma de las líneas en USD (solo líneas con moneda válida).
+      - name: has_line_items
+        description: La orden tiene al menos una línea en order_items.
+        data_tests:
+          - not_null
+      - name: is_total_reconciled
+        description: >
+          El total de cabecera coincide con la suma de líneas (tolerancia 0.05
+          por redondeo). Nulo si la orden no tiene líneas.
+      - name: is_valid_currency
+        data_tests:
+          - not_null
+      - name: is_fx_rate_backfilled
+        description: La orden es anterior a la primera tasa disponible.

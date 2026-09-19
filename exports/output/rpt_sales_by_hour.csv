@@ -1,0 +1,169 @@
+slot_key,hour_of_day,hour_label,daypart,day_of_week,day_name,is_weekend,orders,orders_with_revenue,revenue_usd,units,avg_order_value_usd,share_of_orders
+609,9,09:00,2. Morning (06-11),6,Saturday,true,5,4,900.86,7,225.22,0.011
+610,10,10:00,2. Morning (06-11),6,Saturday,true,8,8,2227.47,14,278.43,0.0177
+611,11,11:00,2. Morning (06-11),6,Saturday,true,9,4,1052.17,36,263.04,0.0199
+612,12,12:00,3. Afternoon (12-17),6,Saturday,true,7,7,2118.63,13,302.66,0.0155
+613,13,13:00,3. Afternoon (12-17),6,Saturday,true,4,4,1269.48,10,317.37,0.0088
+614,14,14:00,3. Afternoon (12-17),6,Saturday,true,12,12,3296.09,27,274.67,0.0265
+615,15,15:00,3. Afternoon (12-17),6,Saturday,true,8,4,871.95,22,217.99,0.0177
+616,16,16:00,3. Afternoon (12-17),6,Saturday,true,6,5,1044.87,23,208.97,0.0132
+617,17,17:00,3. Afternoon (12-17),6,Saturday,true,3,3,1060.08,2,353.36,0.0066
+618,18,18:00,4. Evening (18-23),6,Saturday,true,2,2,680.40,8,340.2,0.0044
+109,9,09:00,2. Morning (06-11),1,Monday,false,6,6,1449.69,13,241.62,0.0132
+110,10,10:00,2. Morning (06-11),1,Monday,false,8,7,2134.03,10,304.86,0.0177
+111,11,11:00,2. Morning (06-11),1,Monday,false,9,6,1769.59,10,294.93,0.0199
+112,12,12:00,3. Afternoon (12-17),1,Monday,false,8,8,2693.65,9,336.71,0.0177
+113,13,13:00,3. Afternoon (12-17),1,Monday,false,5,4,1093.20,17,273.3,0.011
+114,14,14:00,3. Afternoon (12-17),1,Monday,false,8,8,2221.08,23,277.64,0.0177
+115,15,15:00,3. Afternoon (12-17),1,Monday,false,9,5,1421.07,23,284.21,0.0199
+116,16,16:00,3. Afternoon (12-17),1,Monday,false,7,7,2162.46,20,308.92,0.0155
+117,17,17:00,3. Afternoon (12-17),1,Monday,false,2,2,592.16,3,296.08,0.0044
+118,18,18:00,4. Evening (18-23),1,Monday,false,2,2,624.05,0,312.02,0.0044
+409,9,09:00,2. Morning (06-11),4,Thursday,false,7,4,1232.43,16,308.11,0.0155
+410,10,10:00,2. Morning (06-11),4,Thursday,false,8,7,2023.21,19,289.03,0.0177
+411,11,11:00,2. Morning (06-11),4,Thursday,false,7,3,1123.41,14,374.47,0.0155
+412,12,12:00,3. Afternoon (12-17),4,Thursday,false,10,10,2827.67,26,282.77,0.0221
+413,13,13:00,3. Afternoon (12-17),4,Thursday,false,4,4,1101.30,15,275.33,0.0088
+414,14,14:00,3. Afternoon (12-17),4,Thursday,false,9,9,2283.64,19,253.74,0.0199
+415,15,15:00,3. Afternoon (12-17),4,Thursday,false,12,7,2346.63,28,335.23,0.0265
+416,16,16:00,3. Afternoon (12-17),4,Thursday,false,3,3,661.62,6,220.54,0.0066
+417,17,17:00,3. Afternoon (12-17),4,Thursday,false,3,3,846.29,1,282.1,0.0066
+418,18,18:00,4. Evening (18-23),4,Thursday,false,2,2,535.30,2,267.65,0.0044
+209,9,09:00,2. Morning (06-11),2,Tuesday,false,6,6,1728.06,13,288.01,0.0132
+210,10,10:00,2. Morning (06-11),2,Tuesday,false,7,7,1874.95,18,267.85,0.0155
+211,11,11:00,2. Morning (06-11),2,Tuesday,false,7,4,743.93,14,185.98,0.0155
+212,12,12:00,3. Afternoon (12-17),2,Tuesday,false,11,10,2887.24,17,288.72,0.0243
+213,13,13:00,3. Afternoon (12-17),2,Tuesday,false,5,5,1762.23,8,352.45,0.011
+214,14,14:00,3. Afternoon (12-17),2,Tuesday,false,10,8,2157.73,25,269.72,0.0221
+215,15,15:00,3. Afternoon (12-17),2,Tuesday,false,11,5,1684.39,18,336.88,0.0243
+216,16,16:00,3. Afternoon (12-17),2,Tuesday,false,5,5,1229.98,15,246.0,0.011
+217,17,17:00,3. Afternoon (12-17),2,Tuesday,false,2,2,531.72,0,265.86,0.0044
+218,18,18:00,4. Evening (18-23),2,Tuesday,false,3,3,969.85,3,323.28,0.0066
+709,9,09:00,2. Morning (06-11),7,Sunday,true,4,4,1035.60,9,258.9,0.0088
+710,10,10:00,2. Morning (06-11),7,Sunday,true,11,10,2747.41,30,274.74,0.0243
+711,11,11:00,2. Morning (06-11),7,Sunday,true,6,2,282.33,12,141.17,0.0132
+712,12,12:00,3. Afternoon (12-17),7,Sunday,true,6,5,1552.03,6,310.41,0.0132
+713,13,13:00,3. Afternoon (12-17),7,Sunday,true,8,7,2272.77,16,324.68,0.0177
+714,14,14:00,3. Afternoon (12-17),7,Sunday,true,8,8,1986.19,19,248.27,0.0177
+715,15,15:00,3. Afternoon (12-17),7,Sunday,true,14,9,2624.96,30,291.66,0.0309
+716,16,16:00,3. Afternoon (12-17),7,Sunday,true,5,4,1180.14,19,295.04,0.011
+717,17,17:00,3. Afternoon (12-17),7,Sunday,true,2,2,503.74,2,251.87,0.0044
+718,18,18:00,4. Evening (18-23),7,Sunday,true,2,2,580.40,0,290.2,0.0044
+309,9,09:00,2. Morning (06-11),3,Wednesday,false,3,3,704.50,9,234.83,0.0066
+310,10,10:00,2. Morning (06-11),3,Wednesday,false,6,6,2054.91,10,342.48,0.0132
+311,11,11:00,2. Morning (06-11),3,Wednesday,false,9,4,1032.92,22,258.23,0.0199
+312,12,12:00,3. Afternoon (12-17),3,Wednesday,false,6,5,1604.12,11,320.82,0.0132
+313,13,13:00,3. Afternoon (12-17),3,Wednesday,false,5,4,1234.41,9,308.6,0.011
+314,14,14:00,3. Afternoon (12-17),3,Wednesday,false,8,7,1523.41,16,217.63,0.0177
+315,15,15:00,3. Afternoon (12-17),3,Wednesday,false,11,8,2321.30,17,290.16,0.0243
+316,16,16:00,3. Afternoon (12-17),3,Wednesday,false,7,7,2141.96,31,305.99,0.0155
+317,17,17:00,3. Afternoon (12-17),3,Wednesday,false,2,2,752.67,0,376.34,0.0044
+318,18,18:00,4. Evening (18-23),3,Wednesday,false,4,4,1011.35,6,252.84,0.0088
+509,9,09:00,2. Morning (06-11),5,Friday,false,6,5,1105.06,16,221.01,0.0132
+510,10,10:00,2. Morning (06-11),5,Friday,false,9,9,2240.86,19,248.98,0.0199
+511,11,11:00,2. Morning (06-11),5,Friday,false,9,5,1629.63,21,325.93,0.0199
+512,12,12:00,3. Afternoon (12-17),5,Friday,false,7,7,2124.12,21,303.45,0.0155
+513,13,13:00,3. Afternoon (12-17),5,Friday,false,5,5,1314.56,9,262.91,0.011
+514,14,14:00,3. Afternoon (12-17),5,Friday,false,9,9,2478.92,15,275.44,0.0199
+515,15,15:00,3. Afternoon (12-17),5,Friday,false,7,4,1049.20,9,262.3,0.0155
+516,16,16:00,3. Afternoon (12-17),5,Friday,false,8,7,1796.78,25,256.68,0.0177
+517,17,17:00,3. Afternoon (12-17),5,Friday,false,4,3,824.36,8,274.79,0.0088
+518,18,18:00,4. Evening (18-23),5,Friday,false,2,2,480.50,4,240.25,0.0044
+600,0,00:00,1. Early morning (00-05),6,Saturday,true,0,0,0.00,0,,0.0
+601,1,01:00,1. Early morning (00-05),6,Saturday,true,0,0,0.00,0,,0.0
+602,2,02:00,1. Early morning (00-05),6,Saturday,true,0,0,0.00,0,,0.0
+603,3,03:00,1. Early morning (00-05),6,Saturday,true,0,0,0.00,0,,0.0
+604,4,04:00,1. Early morning (00-05),6,Saturday,true,0,0,0.00,0,,0.0
+605,5,05:00,1. Early morning (00-05),6,Saturday,true,0,0,0.00,0,,0.0
+606,6,06:00,2. Morning (06-11),6,Saturday,true,0,0,0.00,0,,0.0
+607,7,07:00,2. Morning (06-11),6,Saturday,true,0,0,0.00,0,,0.0
+608,8,08:00,2. Morning (06-11),6,Saturday,true,0,0,0.00,0,,0.0
+619,19,19:00,4. Evening (18-23),6,Saturday,true,0,0,0.00,0,,0.0
+620,20,20:00,4. Evening (18-23),6,Saturday,true,0,0,0.00,0,,0.0
+621,21,21:00,4. Evening (18-23),6,Saturday,true,0,0,0.00,0,,0.0
+622,22,22:00,4. Evening (18-23),6,Saturday,true,0,0,0.00,0,,0.0
+623,23,23:00,4. Evening (18-23),6,Saturday,true,0,0,0.00,0,,0.0
+100,0,00:00,1. Early morning (00-05),1,Monday,false,0,0,0.00,0,,0.0
+101,1,01:00,1. Early morning (00-05),1,Monday,false,0,0,0.00,0,,0.0
+102,2,02:00,1. Early morning (00-05),1,Monday,false,0,0,0.00,0,,0.0
+103,3,03:00,1. Early morning (00-05),1,Monday,false,0,0,0.00,0,,0.0
+104,4,04:00,1. Early morning (00-05),1,Monday,false,0,0,0.00,0,,0.0
+105,5,05:00,1. Early morning (00-05),1,Monday,false,0,0,0.00,0,,0.0
+106,6,06:00,2. Morning (06-11),1,Monday,false,0,0,0.00,0,,0.0
+107,7,07:00,2. Morning (06-11),1,Monday,false,0,0,0.00,0,,0.0
+108,8,08:00,2. Morning (06-11),1,Monday,false,0,0,0.00,0,,0.0
+119,19,19:00,4. Evening (18-23),1,Monday,false,0,0,0.00,0,,0.0
+120,20,20:00,4. Evening (18-23),1,Monday,false,0,0,0.00,0,,0.0
+121,21,21:00,4. Evening (18-23),1,Monday,false,0,0,0.00,0,,0.0
+122,22,22:00,4. Evening (18-23),1,Monday,false,0,0,0.00,0,,0.0
+123,23,23:00,4. Evening (18-23),1,Monday,false,0,0,0.00,0,,0.0
+400,0,00:00,1. Early morning (00-05),4,Thursday,false,0,0,0.00,0,,0.0
+401,1,01:00,1. Early morning (00-05),4,Thursday,false,0,0,0.00,0,,0.0
+402,2,02:00,1. Early morning (00-05),4,Thursday,false,0,0,0.00,0,,0.0
+403,3,03:00,1. Early morning (00-05),4,Thursday,false,0,0,0.00,0,,0.0
+404,4,04:00,1. Early morning (00-05),4,Thursday,false,0,0,0.00,0,,0.0
+405,5,05:00,1. Early morning (00-05),4,Thursday,false,0,0,0.00,0,,0.0
+406,6,06:00,2. Morning (06-11),4,Thursday,false,0,0,0.00,0,,0.0
+407,7,07:00,2. Morning (06-11),4,Thursday,false,0,0,0.00,0,,0.0
+408,8,08:00,2. Morning (06-11),4,Thursday,false,0,0,0.00,0,,0.0
+419,19,19:00,4. Evening (18-23),4,Thursday,false,0,0,0.00,0,,0.0
+420,20,20:00,4. Evening (18-23),4,Thursday,false,0,0,0.00,0,,0.0
+421,21,21:00,4. Evening (18-23),4,Thursday,false,0,0,0.00,0,,0.0
+422,22,22:00,4. Evening (18-23),4,Thursday,false,0,0,0.00,0,,0.0
+423,23,23:00,4. Evening (18-23),4,Thursday,false,0,0,0.00,0,,0.0
+200,0,00:00,1. Early morning (00-05),2,Tuesday,false,0,0,0.00,0,,0.0
+201,1,01:00,1. Early morning (00-05),2,Tuesday,false,0,0,0.00,0,,0.0
+202,2,02:00,1. Early morning (00-05),2,Tuesday,false,0,0,0.00,0,,0.0
+203,3,03:00,1. Early morning (00-05),2,Tuesday,false,0,0,0.00,0,,0.0
+204,4,04:00,1. Early morning (00-05),2,Tuesday,false,0,0,0.00,0,,0.0
+205,5,05:00,1. Early morning (00-05),2,Tuesday,false,0,0,0.00,0,,0.0
+206,6,06:00,2. Morning (06-11),2,Tuesday,false,0,0,0.00,0,,0.0
+207,7,07:00,2. Morning (06-11),2,Tuesday,false,0,0,0.00,0,,0.0
+208,8,08:00,2. Morning (06-11),2,Tuesday,false,0,0,0.00,0,,0.0
+219,19,19:00,4. Evening (18-23),2,Tuesday,false,0,0,0.00,0,,0.0
+220,20,20:00,4. Evening (18-23),2,Tuesday,false,0,0,0.00,0,,0.0
+221,21,21:00,4. Evening (18-23),2,Tuesday,false,0,0,0.00,0,,0.0
+222,22,22:00,4. Evening (18-23),2,Tuesday,false,0,0,0.00,0,,0.0
+223,23,23:00,4. Evening (18-23),2,Tuesday,false,0,0,0.00,0,,0.0
+700,0,00:00,1. Early morning (00-05),7,Sunday,true,0,0,0.00,0,,0.0
+701,1,01:00,1. Early morning (00-05),7,Sunday,true,0,0,0.00,0,,0.0
+702,2,02:00,1. Early morning (00-05),7,Sunday,true,0,0,0.00,0,,0.0
+703,3,03:00,1. Early morning (00-05),7,Sunday,true,0,0,0.00,0,,0.0
+704,4,04:00,1. Early morning (00-05),7,Sunday,true,0,0,0.00,0,,0.0
+705,5,05:00,1. Early morning (00-05),7,Sunday,true,0,0,0.00,0,,0.0
+706,6,06:00,2. Morning (06-11),7,Sunday,true,0,0,0.00,0,,0.0
+707,7,07:00,2. Morning (06-11),7,Sunday,true,0,0,0.00,0,,0.0
+708,8,08:00,2. Morning (06-11),7,Sunday,true,0,0,0.00,0,,0.0
+719,19,19:00,4. Evening (18-23),7,Sunday,true,0,0,0.00,0,,0.0
+720,20,20:00,4. Evening (18-23),7,Sunday,true,0,0,0.00,0,,0.0
+721,21,21:00,4. Evening (18-23),7,Sunday,true,0,0,0.00,0,,0.0
+722,22,22:00,4. Evening (18-23),7,Sunday,true,0,0,0.00,0,,0.0
+723,23,23:00,4. Evening (18-23),7,Sunday,true,0,0,0.00,0,,0.0
+300,0,00:00,1. Early morning (00-05),3,Wednesday,false,0,0,0.00,0,,0.0
+301,1,01:00,1. Early morning (00-05),3,Wednesday,false,0,0,0.00,0,,0.0
+302,2,02:00,1. Early morning (00-05),3,Wednesday,false,0,0,0.00,0,,0.0
+303,3,03:00,1. Early morning (00-05),3,Wednesday,false,0,0,0.00,0,,0.0
+304,4,04:00,1. Early morning (00-05),3,Wednesday,false,0,0,0.00,0,,0.0
+305,5,05:00,1. Early morning (00-05),3,Wednesday,false,0,0,0.00,0,,0.0
+306,6,06:00,2. Morning (06-11),3,Wednesday,false,0,0,0.00,0,,0.0
+307,7,07:00,2. Morning (06-11),3,Wednesday,false,0,0,0.00,0,,0.0
+308,8,08:00,2. Morning (06-11),3,Wednesday,false,0,0,0.00,0,,0.0
+319,19,19:00,4. Evening (18-23),3,Wednesday,false,0,0,0.00,0,,0.0
+320,20,20:00,4. Evening (18-23),3,Wednesday,false,0,0,0.00,0,,0.0
+321,21,21:00,4. Evening (18-23),3,Wednesday,false,0,0,0.00,0,,0.0
+322,22,22:00,4. Evening (18-23),3,Wednesday,false,0,0,0.00,0,,0.0
+323,23,23:00,4. Evening (18-23),3,Wednesday,false,0,0,0.00,0,,0.0
+500,0,00:00,1. Early morning (00-05),5,Friday,false,0,0,0.00,0,,0.0
+501,1,01:00,1. Early morning (00-05),5,Friday,false,0,0,0.00,0,,0.0
+502,2,02:00,1. Early morning (00-05),5,Friday,false,0,0,0.00,0,,0.0
+503,3,03:00,1. Early morning (00-05),5,Friday,false,0,0,0.00,0,,0.0
+504,4,04:00,1. Early morning (00-05),5,Friday,false,0,0,0.00,0,,0.0
+505,5,05:00,1. Early morning (00-05),5,Friday,false,0,0,0.00,0,,0.0
+506,6,06:00,2. Morning (06-11),5,Friday,false,0,0,0.00,0,,0.0
+507,7,07:00,2. Morning (06-11),5,Friday,false,0,0,0.00,0,,0.0
+508,8,08:00,2. Morning (06-11),5,Friday,false,0,0,0.00,0,,0.0
+519,19,19:00,4. Evening (18-23),5,Friday,false,0,0,0.00,0,,0.0
+520,20,20:00,4. Evening (18-23),5,Friday,false,0,0,0.00,0,,0.0
+521,21,21:00,4. Evening (18-23),5,Friday,false,0,0,0.00,0,,0.0
+522,22,22:00,4. Evening (18-23),5,Friday,false,0,0,0.00,0,,0.0
+523,23,23:00,4. Evening (18-23),5,Friday,false,0,0,0.00,0,,0.0

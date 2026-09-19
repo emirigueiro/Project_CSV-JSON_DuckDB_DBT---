@@ -1,0 +1,109 @@
+product_id,product_name,category,is_in_catalogue,units_sold,order_lines,orders,revenue_usd,revenue_usd_constant,fx_effect_usd,avg_unit_price_usd,revenue_coverage_pct,share_of_units,share_of_revenue,rank_by_units,rank_by_revenue
+9,USB-C Hub 7-in-1,Electronics,true,4,4,4,1693.60,1693.60,0.00,423.4,1.0,0.004,0.0208,66,1
+15,Leather Ankle Boots,Clothing,true,8,4,4,1477.88,1477.88,0.00,184.74,1.0,0.0081,0.0182,43,2
+8,Tablet Stand Adjustable,Electronics,true,4,4,4,1464.17,1453.86,10.31,366.04,1.0,0.004,0.018,66,3
+11,Organic Cotton T-Shirt,Clothing,true,4,4,4,1390.55,1390.55,0.00,347.64,1.0,0.004,0.0171,66,4
+22,Mindfulness and Meditation,Books,true,5,5,5,1382.01,1382.01,0.00,276.4,1.0,0.0051,0.017,61,5
+23,Cooking Around the World,Books,true,4,4,4,1370.10,1359.79,10.31,342.53,1.0,0.004,0.0168,66,6
+37,Microfiber Cleaning Cloths,Home & Garden,true,8,4,4,1369.24,1356.35,12.89,171.16,1.0,0.0081,0.0168,43,7
+29,Machine Learning Fundamentals,Books,true,4,4,4,1346.00,1337.37,8.63,336.5,1.0,0.004,0.0166,66,8
+35,Memory Foam Pillow,Home & Garden,true,4,4,4,1329.33,1312.65,16.68,332.33,1.0,0.004,0.0163,66,9
+53,Hair Styling Tool Set,Beauty & Personal Care,true,3,3,3,1293.05,1293.05,0.00,431.02,1.0,0.003,0.0159,80,10
+18,Athletic Leggings,Clothing,true,4,4,4,1278.59,1258.30,20.29,319.65,1.0,0.004,0.0157,66,11
+75,Dashboard Camera HD,Automotive,true,24,4,4,1270.12,1261.48,8.64,52.92,1.0,0.0243,0.0156,6,12
+16,Cotton Hoodie Pullover,Clothing,true,5,5,5,1268.99,1257.67,11.32,253.8,1.0,0.0051,0.0156,61,13
+31,Ceramic Plant Pot Set,Home & Garden,true,4,4,4,1232.15,1232.15,0.00,308.04,1.0,0.004,0.0152,66,14
+6,Gaming Mechanical Keyboard,Electronics,true,3,3,3,1202.44,1202.44,0.00,400.81,1.0,0.003,0.0148,80,15
+4,4K Webcam,Electronics,true,3,3,3,1185.14,1174.84,10.30,395.05,1.0,0.003,0.0146,80,16
+59,Facial Cleansing Brush,Beauty & Personal Care,true,8,4,4,1106.54,1099.75,6.79,138.32,1.0,0.0081,0.0136,43,17
+26,Financial Planning Basics,Books,true,4,4,4,1103.87,1095.82,8.05,275.97,1.0,0.004,0.0136,66,18
+78,Car Cleaning Kit,Automotive,true,12,3,3,1072.59,1059.73,12.86,89.38,1.0,0.0121,0.0132,28,19
+12,Denim Jacket Classic,Clothing,true,4,3,3,1048.55,1048.55,0.00,262.14,1.0,0.004,0.0129,66,20
+20,Winter Puffer Jacket,Clothing,true,3,3,3,1042.82,1030.58,12.24,347.61,1.0,0.003,0.0128,80,21
+27,Creative Writing Workshop,Books,true,8,4,4,1040.26,1040.26,0.00,130.03,1.0,0.0081,0.0128,43,22
+14,Wool Blend Sweater,Clothing,true,9,5,5,1037.65,1037.65,0.00,115.29,1.0,0.0091,0.0128,36,23
+87,Dog Training Treats,Pet Supplies,true,40,5,5,1027.43,1014.49,12.94,32.11,0.8,0.0405,0.0126,1,24
+32,LED String Lights,Home & Garden,true,3,3,3,1014.40,1004.10,10.30,338.13,1.0,0.003,0.0125,80,25
+44,Hiking Backpack 40L,Sports & Outdoors,true,9,3,3,1005.90,999.11,6.79,111.77,1.0,0.0091,0.0124,36,26
+60,Hair Mask Treatment,Beauty & Personal Care,true,6,3,3,1004.10,991.87,12.23,167.35,1.0,0.0061,0.0123,51,27
+19,Casual Button-Down Shirt,Clothing,true,4,4,4,1002.39,1002.39,0.00,250.6,1.0,0.004,0.0123,66,28
+89,Automatic Pet Feeder,Pet Supplies,true,20,4,4,997.61,997.61,0.00,49.88,1.0,0.0202,0.0123,12,29
+7,Ergonomic Wireless Mouse,Electronics,true,3,3,3,992.49,992.49,0.00,330.83,1.0,0.003,0.0122,80,30
+1,Wireless Bluetooth Headphones,Electronics,true,3,3,3,981.49,981.49,0.00,327.16,1.0,0.003,0.0121,80,31
+58,Body Lotion Luxury,Beauty & Personal Care,true,6,3,3,977.63,977.63,0.00,162.94,1.0,0.0061,0.012,51,32
+28,Home Gardening Encyclopedia,Books,true,5,5,5,976.53,972.97,3.56,195.31,1.0,0.0051,0.012,61,33
+33,Bamboo Cutting Board,Home & Garden,true,5,5,5,975.72,972.15,3.57,195.14,1.0,0.0051,0.012,61,34
+70,Educational Tablet Kids,Toys & Games,true,6,2,2,973.47,961.22,12.25,162.25,1.0,0.0061,0.012,51,35
+41,Yoga Mat Premium,Sports & Outdoors,true,18,6,6,964.65,960.11,4.54,64.31,0.8333,0.0182,0.0119,15,36
+2,Smart Fitness Watch,Electronics,true,2,2,2,960.26,960.26,0.00,480.13,1.0,0.002,0.0118,95,37
+21,The Art of Data Science,Books,true,3,3,3,952.17,952.17,0.00,317.39,1.0,0.003,0.0117,80,38
+17,Silk Scarf Luxury,Clothing,true,3,3,3,945.45,945.45,0.00,315.15,1.0,0.003,0.0116,80,39
+56,Beard Grooming Kit,Beauty & Personal Care,true,6,3,3,862.82,862.82,0.00,143.8,1.0,0.0061,0.0106,51,40
+95,Document Shredder,Office Supplies,true,3,3,3,858.85,858.85,0.00,286.28,1.0,0.003,0.0106,80,41
+52,Electric Toothbrush,Beauty & Personal Care,true,3,3,3,836.18,836.18,0.00,278.73,1.0,0.003,0.0103,80,42
+24,Digital Photography Mastery,Books,true,3,3,3,832.35,832.35,0.00,277.45,1.0,0.003,0.0102,80,43
+50,Running Armband Phone,Sports & Outdoors,true,6,3,3,829.63,817.39,12.24,138.27,1.0,0.0061,0.0102,51,44
+3,Portable Bluetooth Speaker,Electronics,true,2,2,2,829.28,829.28,0.00,414.64,1.0,0.002,0.0102,95,45
+34,Essential Oil Diffuser,Home & Garden,true,3,3,3,825.84,815.53,10.31,275.28,1.0,0.003,0.0102,80,46
+46,Portable Camping Chair,Sports & Outdoors,true,6,3,3,818.64,808.34,10.30,136.44,1.0,0.0061,0.0101,51,47
+54,Vitamin C Serum,Beauty & Personal Care,true,2,2,2,802.30,802.30,0.00,401.15,1.0,0.002,0.0099,95,48
+40,Throw Blanket Cozy,Home & Garden,true,4,2,2,786.90,778.26,8.64,196.73,1.0,0.004,0.0097,66,49
+84,Dog Leash Retractable,Pet Supplies,true,27,3,3,783.00,783.00,0.00,29.0,1.0,0.0273,0.0096,3,50
+92,Ergonomic Office Chair,Office Supplies,true,3,3,3,781.50,781.50,0.00,260.5,1.0,0.003,0.0096,80,51
+36,Stainless Steel Water Bottle,Home & Garden,true,9,3,3,779.22,773.74,5.48,86.58,1.0,0.0091,0.0096,36,52
+73,Car Air Freshener Set,Automotive,true,15,3,3,772.08,767.24,4.84,51.47,1.0,0.0152,0.0095,24,53
+49,Fishing Rod Combo,Sports & Outdoors,true,6,3,3,762.69,755.90,6.79,127.12,1.0,0.0061,0.0094,51,54
+71,Car Phone Mount,Automotive,true,16,4,4,746.45,746.45,0.00,62.2,0.75,0.0162,0.0092,21,55
+30,Travel Photography Tips,Books,true,2,2,2,724.70,724.70,0.00,362.35,1.0,0.002,0.0089,95,56
+51,Organic Face Moisturizer,Beauty & Personal Care,true,2,2,2,724.05,724.05,0.00,362.03,1.0,0.002,0.0089,95,57
+64,Puzzle 1000 Pieces,Toys & Games,true,24,3,3,722.59,722.59,0.00,30.11,1.0,0.0243,0.0089,6,58
+74,Emergency Car Kit,Automotive,true,28,4,4,721.38,713.66,7.72,25.76,1.0,0.0283,0.0089,2,59
+57,Nail Care Set,Beauty & Personal Care,true,4,2,2,714.77,714.77,0.00,178.69,1.0,0.004,0.0088,66,60
+25,Sustainable Living Guide,Books,true,3,3,3,703.70,703.70,0.00,234.57,1.0,0.003,0.0087,80,61
+81,Dog Toy Rope,Pet Supplies,true,24,3,3,699.10,699.10,0.00,29.13,1.0,0.0243,0.0086,6,62
+47,Tennis Racket Professional,Sports & Outdoors,true,9,3,3,697.12,684.23,12.89,116.19,0.6667,0.0091,0.0086,36,63
+42,Camping Sleeping Bag,Sports & Outdoors,true,6,3,3,696.16,686.48,9.68,116.03,1.0,0.0061,0.0086,51,64
+88,Pet Grooming Brush,Pet Supplies,true,12,3,3,692.52,692.52,0.00,57.71,1.0,0.0121,0.0085,28,65
+5,Wireless Charging Pad,Electronics,true,2,2,2,691.65,691.65,0.00,345.83,1.0,0.002,0.0085,95,66
+77,Bluetooth Car Adapter,Automotive,true,12,3,3,636.80,636.80,0.00,53.07,1.0,0.0121,0.0078,28,67
+48,Bike Helmet Safety,Sports & Outdoors,true,9,3,3,605.97,600.80,5.17,67.33,1.0,0.0091,0.0075,36,68
+63,Remote Control Drone,Toys & Games,true,14,2,2,605.65,600.81,4.84,43.26,1.0,0.0142,0.0074,26,69
+38,Solar Garden Lights,Home & Garden,true,4,2,2,591.99,579.74,12.25,148.0,1.0,0.004,0.0073,66,70
+91,Desk Organizer Bamboo,Office Supplies,true,5,3,3,590.90,590.90,0.00,147.73,0.6667,0.0051,0.0073,61,71
+76,Car Seat Organizer,Automotive,true,18,3,3,590.70,590.70,0.00,32.82,1.0,0.0182,0.0073,15,72
+55,Makeup Brush Set,Beauty & Personal Care,true,6,3,3,553.14,548.61,4.53,92.19,1.0,0.0061,0.0068,51,73
+39,Non-Stick Cookware Set,Home & Garden,true,6,3,3,553.04,553.04,0.00,138.26,0.6667,0.0061,0.0068,51,74
+43,Resistance Bands Set,Sports & Outdoors,true,9,3,3,548.01,542.53,5.48,60.89,1.0,0.0091,0.0067,36,75
+67,Musical Keyboard Mini,Toys & Games,true,12,3,3,534.30,534.30,0.00,44.53,1.0,0.0121,0.0066,28,76
+86,Pet Carrier Soft,Pet Supplies,true,26,3,3,525.14,525.14,0.00,20.2,1.0,0.0263,0.0065,5,77
+69,Card Game Family Fun,Toys & Games,true,10,2,2,520.30,511.66,8.64,52.03,1.0,0.0101,0.0064,34,78
+68,Action Figure Collectible,Toys & Games,true,12,2,2,519.09,509.01,10.08,43.26,1.0,0.0121,0.0064,28,79
+65,Art Supplies Kit Kids,Toys & Games,true,18,2,2,513.36,513.36,0.00,28.52,1.0,0.0182,0.0063,15,80
+13,Running Shorts Athletic,Clothing,true,2,2,2,503.16,503.16,0.00,251.58,1.0,0.002,0.0062,95,81
+79,Sunshade Windshield,Automotive,true,10,2,2,467.64,467.64,0.00,46.76,1.0,0.0101,0.0058,34,82
+62,Board Game Strategy,Toys & Games,true,7,1,1,467.26,455.05,12.21,66.75,1.0,0.0071,0.0057,49,83
+98,Stapler Heavy Duty,Office Supplies,true,1,1,1,456.06,456.06,0.00,456.06,1.0,0.001,0.0056,106,84
+94,Wireless Presenter Remote,Office Supplies,true,2,2,2,455.25,455.25,0.00,227.63,1.0,0.002,0.0056,95,85
+45,Water Sports Goggles,Sports & Outdoors,true,9,3,3,452.09,452.09,0.00,50.23,1.0,0.0091,0.0056,36,86
+110,Unknown product),Unknown,false,12,4,4,445.95,445.95,0.00,148.65,0.25,0.0121,0.0055,28,87
+85,Cat Litter Mat,Pet Supplies,true,27,3,3,436.32,436.32,0.00,16.16,1.0,0.0273,0.0054,3,88
+10,Smartphone Camera Lens Kit,Electronics,true,1,1,1,423.55,423.55,0.00,423.55,1.0,0.001,0.0052,106,89
+97,Printer Paper Premium,Office Supplies,true,1,1,1,423.50,423.50,0.00,423.5,1.0,0.001,0.0052,106,90
+66,Science Experiment Kit,Toys & Games,true,20,2,2,403.35,403.35,0.00,20.17,1.0,0.0202,0.005,12,91
+106,Unknown product),Unknown,false,16,8,8,372.06,372.06,0.00,186.03,0.125,0.0162,0.0046,21,92
+90,Pet Bed Orthopedic,Pet Supplies,true,2,2,2,358.75,358.75,0.00,179.38,1.0,0.002,0.0044,95,93
+72,Tire Pressure Gauge,Automotive,true,8,2,2,357.48,357.48,0.00,44.69,1.0,0.0081,0.0044,43,94
+61,Building Blocks Creative Set,Toys & Games,true,7,1,1,356.79,356.79,0.00,50.97,1.0,0.0071,0.0044,49,95
+93,Standing Desk Converter,Office Supplies,true,2,2,2,346.80,346.80,0.00,173.4,1.0,0.002,0.0043,95,96
+96,Whiteboard Magnetic,Office Supplies,true,2,2,2,346.20,346.20,0.00,173.1,1.0,0.002,0.0043,95,97
+83,Pet Food Bowl Set,Pet Supplies,true,18,2,2,324.24,324.24,0.00,18.01,1.0,0.0182,0.004,15,98
+82,Cat Scratching Post,Pet Supplies,true,21,3,3,247.24,247.24,0.00,17.66,0.6667,0.0213,0.003,10,99
+80,Car Floor Mats,Automotive,true,8,1,1,184.11,179.30,4.81,23.01,1.0,0.0081,0.0023,43,100
+103,Unknown product),Unknown,false,15,7,7,156.86,156.86,0.00,78.43,0.1429,0.0152,0.0019,24,101
+109,Unknown product),Unknown,false,18,6,6,0.00,0.00,0.00,,0.0,0.0182,0.0,15,102
+102,Unknown product),Unknown,false,16,8,8,0.00,0.00,0.00,,0.0,0.0162,0.0,21,102
+101,Unknown product),Unknown,false,18,9,9,0.00,0.00,0.00,,0.0,0.0182,0.0,15,102
+107,Unknown product),Unknown,false,20,7,7,0.00,0.00,0.00,,0.0,0.0202,0.0,12,102
+108,Unknown product),Unknown,false,21,7,7,0.00,0.00,0.00,,0.0,0.0213,0.0,10,102
+105,Unknown product),Unknown,false,14,7,7,0.00,0.00,0.00,,0.0,0.0142,0.0,26,102
+104,Unknown product),Unknown,false,24,8,8,0.00,0.00,0.00,,0.0,0.0243,0.0,6,102
