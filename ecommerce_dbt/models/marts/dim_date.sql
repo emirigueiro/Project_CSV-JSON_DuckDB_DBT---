@@ -1,5 +1,4 @@
--- Dimensión de fechas. Grano: un registro por día.
--- Cubre los años completos entre la primera y la última orden.
+
 
 with bounds as (
 

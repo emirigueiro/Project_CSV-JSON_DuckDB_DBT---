@@ -1,10 +1,8 @@
--- Grano: un registro por orden (igual que stg_orders).
+-- un registro por orden (igual que stg_orders).
 -- Convierte el total de cabecera a USD, agrega los totales de sus líneas y
--- marca los problemas de calidad a nivel orden.
---
 -- Nota: el total de cabecera se compara con la suma de las líneas en moneda
--- local (tal como las informa el origen). Solo 3 órdenes tienen más de una
--- línea, por lo que la mezcla de monedas dentro de una orden es marginal.
+
+-
 
 with orders as (
 

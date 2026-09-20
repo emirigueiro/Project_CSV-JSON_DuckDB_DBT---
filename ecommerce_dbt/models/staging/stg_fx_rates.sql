@@ -1,7 +1,9 @@
--- Grano: un registro por fecha + moneda origen + moneda destino.
+-- un registro por fecha + moneda origen + moneda destino.
 -- Aplana las respuestas de la API: cada respuesta trae una moneda base y un
+
+
 -- JSON {moneda_destino: tasa}. Se genera una fila por cada par de monedas.
--- `rate` = cuántas unidades de currency_to equivalen a 1 unidad de currency_from.
+-- `rate` = cuántas unidades de currency_to equivalen a 1 unidad de currency_from o eso creo .
 
 with source as (
 
@@ -12,9 +14,9 @@ with source as (
 flattened as (
 
     select
-        upper(trim(source.base_currency))           as currency_from,
-        upper(trim(t.currency_key))                 as currency_to,
-        cast(source.rate_date as date)              as rate_date,
+        upper(trim(source.base_currency))        as currency_from,
+        upper(trim(t.currency_key))               as currency_to,
+        cast(source.rate_date as date)           as rate_date,
         cast(source.rates ->> t.currency_key as decimal(18, 6)) as rate,
         source._loaded_at
 
@@ -29,8 +31,7 @@ final as (
         currency_from || '_' || currency_to || '_' || strftime(rate_date, '%Y-%m-%d')
                                                     as fx_rate_id,
         *
-
-    from flattened
+ from flattened
 
 )
 

@@ -40,14 +40,11 @@ select
     orders.total_vs_lines_diff,
 
     -- Trazabilidad de la conversión
-    orders.fx_rate_to_usd,
-    orders.fx_rate_date,
-    orders.fx_rate_source,
+    orders.fx_rate_to_usd,    orders.fx_rate_date,    orders.fx_rate_source,
 
     -- Flags de calidad
     orders.is_valid_currency,
-    orders.has_line_items,
-    orders.is_total_reconciled,
+    orders.has_line_items,orders.is_total_reconciled,
     orders.has_invalid_currency_lines,
     orders.has_unknown_product_lines,
     orders.is_fx_rate_backfilled,

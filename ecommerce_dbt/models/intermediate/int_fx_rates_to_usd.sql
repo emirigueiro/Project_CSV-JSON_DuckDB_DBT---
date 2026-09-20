@@ -1,4 +1,4 @@
--- Grano: un registro por moneda + fecha de tasa.
+-- un registro por moneda + fecha de tasa.
 -- Tasa a USD tomada directamente de la API (respuestas con rates.USD),
 -- con rango de vigencia [valid_from, valid_to).
 

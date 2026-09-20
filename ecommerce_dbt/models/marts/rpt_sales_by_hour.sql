@@ -1,14 +1,11 @@
 -- Pregunta de negocio 2: ¿cuál es el mejor horario para lanzar promociones?
--- Grano: un registro por hora del día × día de la semana (24 × 7 = 168 filas).
--- Incluye las combinaciones sin ventas (con 0), para que el dashboard muestre
--- también los horarios vacíos.
---
--- Reglas:
+-- un registro por hora del día × día de la semana (24 × 7 = 168 filas).
+-- Incluye las combinaciones sin ventas (con 0)
+
 --   - Base: fct_orders (todas las órdenes, incluidas las que no tienen líneas).
---   - Métrica principal: cantidad de órdenes (no afectada por problemas de calidad).
---   - Revenue USD: total de cabecera, solo monedas válidas (ver is_total_reconciled
---     en fct_orders: el total de cabecera no siempre coincide con las líneas).
---   - Zona horaria de los timestamps: no documentada en el origen (supuesto: hora local).
+--   - Métrica principal: cantidad de órdenes
+--   - Revenue USD: total de cabecera, solo monedas válidas 
+--   - Zona horaria de los timestamps: no documentada en el origen.
 
 with orders as (
 

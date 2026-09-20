@@ -1,8 +1,8 @@
--- Grano: un registro por línea de orden (igual que stg_order_items).
+
 -- Enriquece cada línea con datos de su orden, el catálogo y la tasa de cambio,
 -- calcula el importe en USD y marca cada problema de calidad con un flag.
 -- No descarta filas: todos los joins son LEFT JOIN y el grano se protege con
--- tests (unique en order_item_id + test de conteo de filas).
+
 
 with order_items as (
 

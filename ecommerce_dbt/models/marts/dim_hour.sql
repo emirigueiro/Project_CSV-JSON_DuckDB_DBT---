@@ -1,6 +1,3 @@
--- Dimensión de hora del día. Grano: un registro por hora (0-23).
--- Agrupa las horas en franjas para un análisis más robusto con muestras chicas.
--- La zona horaria de los timestamps no está documentada en el origen.
 
 select
     hour_of_day,

@@ -1,7 +1,6 @@
--- Dimensión de monedas. Grano: un registro por currency_code.
--- Incluye toda moneda que aparece en órdenes, líneas o tasas, también los
--- códigos inválidos del origen (XYZ, ABC, QWE) como miembros marcados, para
--- mantener la integridad referencial de los hechos.
+-- un registro por currency_code.
+-- Incluye toda moneda:   órdenes, líneas o tasas, también los
+-- códigos inválidos del origen (XYZ, ABC, QWE) 
 
 with codes as (
 

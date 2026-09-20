@@ -1,7 +1,7 @@
 -- Pregunta de negocio 1: ¿qué productos son los top performers en volumen y revenue?
--- Grano: un registro por producto (incluye productos fuera de catálogo).
---
--- Reglas:
+--  un registro por producto (incluye productos fuera de catálogo).
+
+
 --   - Solo órdenes con revenue elegible (status completed).
 --   - Volumen (unidades): cuenta TODAS las líneas, también las de moneda inválida.
 --   - Revenue USD: solo líneas con moneda válida; revenue_coverage_pct indica

@@ -1,4 +1,4 @@
--- Grano: un registro por producto del catálogo.
+-- un registro por producto del catálogo.
 
 with source as (
 

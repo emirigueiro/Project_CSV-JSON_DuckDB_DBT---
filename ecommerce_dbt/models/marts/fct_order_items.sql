@@ -25,12 +25,7 @@ constant_rates as (
 
 select
     -- Claves
-    items.order_item_id,
-    items.order_id,
-    items.product_id,
-    items.customer_id,
-    items.currency_code,
-    items.order_date,
+    items.order_item_id,  items.order_id, items.product_id, items.customer_id,  items.currency_code,   items.order_date,
     hour(items.ordered_at)                                  as order_hour,
 
     -- Atributos degenerados
@@ -51,11 +46,7 @@ select
     items.fx_rate_source,
 
     -- Flags de calidad
-    items.is_valid_currency,
-    items.is_in_catalogue,
-    items.is_currency_mismatch,
-    items.is_fx_rate_backfilled,
-    items.is_revenue_eligible
+    items.is_valid_currency,    items.is_in_catalogue, items.is_currency_mismatch,items.is_fx_rate_backfilled,items.is_revenue_eligible
 
 from items
 left join constant_rates

@@ -1,6 +1,6 @@
--- Grano: un registro por orden (cabecera).
--- Castea tipos, separa fecha y hora de la orden y normaliza moneda y status.
--- No filtra filas: los problemas de calidad se marcan más adelante (intermediate).
+-- un registro por orden (cabecera).
+
+
 
 with source as (
 

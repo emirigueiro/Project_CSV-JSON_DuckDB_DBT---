@@ -4,7 +4,7 @@
 
 The raw source files are loaded into the raw schema of warehouse.duckdb by a Python notebook (ingest/01_ingesta_raw.ipynb), using a full refresh. Ingestion is deliberately kept separate from transformation: the loader only does Extract + Load, and every cleaning step, data type and business rule lives in dbt.
 
-CSV columns are loaded as VARCHAR (all_varchar = true). Type inference on dirty data can fail or silently coerce values.
+CSV files are loaded as VARCHAR (all_varchar = true). Type inference on dirty data can fail or silently coerce values.
 Every table includes two metadata columns: _loaded_at (load timestamp) and _source_file (origin file).
 fx_rates.json is not a flat list but an object wrapping an array of API responses. The loader stores one row per API response, keeping the rates map as JSON; it is flattened in staging.
 
@@ -14,7 +14,6 @@ Customers and products: daily full refresh plus a dbt SCD2 snapshot to preserve 
 FX rates: scheduled daily API call, append-only. SCD2 is not required because rates are immutable, dated values.
 
 # 2. Data transformation
-
 dbt project: ecommerce_dbt, organized in three layers.
 
 # Staging
@@ -25,7 +24,6 @@ stg_orders
 stg_order_items
 stg_products
 stg_fx_rates
-Intermediate
 
 # Intermediate
 Reusable business logic: currency conversion to USD and data-quality flags. These models enrich the data that feeds the fact tables.
@@ -60,7 +58,8 @@ rpt_sales_by_hour	    Report     (Q2)	hour of day × day of week
 
 # 3. Currency normalization
 
-All revenue is converted to USD. Each rate is valid from its date until the next rate of the same currency, [valid_from, valid_to). The earliest rate per currency is extended backwards (valid_from = 1900-01-01) to cover orders placed before the first API response (55 orders, January–May 2024); those rows are flagged with is_fx_rate_backfilled. Orders join to rates with a range condition (order_date >= valid_from and order_date < valid_to), which is portable to any warehouse; DuckDB's ASOF JOIN would be an equivalent alternative.
+All revenue is converted to USD. Each rate is valid from its date until the next rate of the same currency, [valid_from, valid_to).
+The earliest rate per currency is extended backwards (valid_from = 1900-01-01) to cover orders placed before the first API response (55 orders, January–May 2024); those rows are flagged with is_fx_rate_backfilled. Orders join to rates with a range condition (order_date >= valid_from and order_date < valid_to), which is portable to any warehouse; DuckDB's ASOF JOIN would be an equivalent alternative.
 
 Conversion rules:
 
@@ -87,7 +86,15 @@ GBP-based rates only available for June	GBP rate for September missing	Minor: al
 * quantity and unit_price in order items: not null and greater than zero; a line without quantity or price is invalid.
 * FX rates: no null values allowed, since every field is required to perform the conversion.
 
-Known source issues that the model handles explicitly (invalid currencies, unknown products, orders without lines, unreconciled totals) are set to warn.
+# Assumptions
+
+USD is the reporting currency, and the product catalogue (`base_price`) is in USD.
+codes without a rate (`XYZ`, `ABC`, `QWE`) are treated as invalid.
+A rate is valid from its date until the next available rate; the earliest rate is also applied to orders placed before it.
+For line revenue, the line currency is the source of truth, not the order header's
+Only `completed` orders count as revenue (currently all orders are completed).
+Product revenue is computed from the orders lines table, 93 orders have not lines (and I need the line for math de produt id)
+Product ids missing from the catalogue are real products not yet in the catalogue, so they are kept as "Unknown product" members instead of being dropped
 
 # Custom tests
 positive_value (custom generic test): quantities, prices, rates and totals must be greater than zero.

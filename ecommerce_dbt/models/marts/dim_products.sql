@@ -1,4 +1,4 @@
--- Dimensión de productos. Grano: un registro por product_id.
+-- un registro por product_id.
 -- Incluye el catálogo completo MÁS un miembro "desconocido" por cada product_id
 -- vendido que no existe en el catálogo. Así ninguna venta se pierde y la FK
 -- fct_order_items.product_id -> dim_products tiene integridad garantizada.
