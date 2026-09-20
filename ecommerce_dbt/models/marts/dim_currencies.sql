@@ -21,9 +21,9 @@ with_rates as (
 
 select
     codes.currency_code,
-    with_rates.currency_code is not null        as has_fx_rate,
-    with_rates.currency_code is not null        as is_valid_currency,
-    codes.currency_code = 'USD'                 as is_reporting_currency
+    with_rates.currency_code is not null     AS has_fx_rate,
+    with_rates.currency_code is not null   AS is_valid_currency,
+    codes.currency_code = 'USD'             AS is_reporting_currency
 
 from codes
 left join with_rates

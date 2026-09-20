@@ -16,9 +16,7 @@ fx_rates as (
 
 ),
 
-line_totals as (
-
-    select
+line_totals as (select
         order_id,
         count(*)                    as line_count,
         sum(quantity)               as units,
@@ -32,9 +30,7 @@ line_totals as (
 
 ),
 
-joined as (
-
-    select
+joined as (select
         orders.order_id,
         orders.customer_id,
         orders.ordered_at,
@@ -43,20 +39,22 @@ joined as (
         orders.currency_code,
         orders.order_total_amount,
 
-        fx_rates.rate_to_usd                            as fx_rate_to_usd,
-        fx_rates.rate_date                              as fx_rate_date,
-        fx_rates.fx_rate_source,
-        cast(orders.order_total_amount * fx_rates.rate_to_usd as decimal(18, 2))
-                                                        as order_total_usd,
+        fx_rates.rate_to_usd       as fx_rate_to_usd,
+        fx_rates.rate_date         as fx_rate_date,
+        fx_rates.fx_rate_source, 
+        
+        
+        cast(orders.order_total_amount * fx_rates.rate_to_usd as decimal(18, 2))    as order_total_usd,
 
-        coalesce(line_totals.line_count, 0)             as line_count,
-        coalesce(line_totals.units, 0)                  as units,
+
+        coalesce(line_totals.line_count, 0)          as line_count,
+        coalesce(line_totals.units, 0)      units,
         line_totals.lines_amount,
         line_totals.lines_amount_usd,
-        coalesce(line_totals.has_invalid_currency_lines, false)
-                                                        as has_invalid_currency_lines,
-        coalesce(line_totals.has_unknown_product_lines, false)
-                                                        as has_unknown_product_lines,
+        coalesce(line_totals.has_invalid_currency_lines, false) as has_invalid_currency_lines,
+        coalesce(line_totals.has_unknown_product_lines, false)  as has_unknown_product_lines,
+
+        
         line_totals.order_id is not null                as has_line_items
 
     from orders
@@ -73,15 +71,15 @@ joined as (
 
 select
     *,
-    order_total_amount - lines_amount                       as total_vs_lines_diff,
+    order_total_amount - lines_amount           as total_vs_lines_diff,
 
     -- Flags de calidad
-    fx_rate_to_usd is not null                              as is_valid_currency,
-    coalesce(order_date < fx_rate_date, false)              as is_fx_rate_backfilled,
+    fx_rate_to_usd is not null                    as is_valid_currency,
+    coalesce(order_date < fx_rate_date, false)          as is_fx_rate_backfilled,
     case
         when not has_line_items then null
         else abs(order_total_amount - lines_amount) <= 0.05
     end                                                     as is_total_reconciled,
-    order_status = 'completed'                              as is_revenue_eligible
+    order_status = 'completed'   as is_revenue_eligible
 
 from joined

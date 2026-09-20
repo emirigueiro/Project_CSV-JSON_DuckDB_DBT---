@@ -1,13 +1,9 @@
 -- un registro por cliente.
 -- Castea tipos, renombra la clave y normaliza el email.
 
-with source as (
+with source as (select * from {{ source('raw', 'customers') }}),
 
-    select * from {{ source('raw', 'customers') }}),
-
-renamed as (
-
-    select
+renamed as (select
         cast(id as integer)               as customer_id,
         trim(name)                         as customer_name,
         lower(trim(email))                 as email,
@@ -16,7 +12,5 @@ renamed as (
         _loaded_at
 
     from source
-
 )
-
 select * from renamed

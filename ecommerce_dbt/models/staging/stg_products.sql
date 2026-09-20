@@ -1,14 +1,10 @@
 -- un registro por producto del catálogo.
 
-with source as (
-
-    select * from {{ source('raw', 'products') }}
+with source as (select * from {{ source('raw', 'products') }}
 
 ),
 
-renamed as (
-
-    select
+renamed as (select
         cast(id as integer)                     as product_id,
         trim(name)                              as product_name,
         trim(category)                          as category,
@@ -20,5 +16,4 @@ renamed as (
     from source
 
 )
-
 select * from renamed

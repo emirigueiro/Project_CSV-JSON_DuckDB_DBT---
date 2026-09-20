@@ -34,11 +34,13 @@ int_order_items_enriched	  order line	  Line + order + product + FX rate; USD am
 int_orders_enriched	          order	         Order + FX rate + aggregated line totals; order-level flags
 
 # Marts
-I chose a star schema with three fact tables:
+I chose a star schema mantain two main facts tables (orers and orders_items) for this reason:
 
-fct_order_items answers the first question, because the product only exists at line level.
-fct_orders answers the second question, because 93 orders have no line items: building it from the lines would silently drop 20% of the orders from the time-of-day analysis.
-fct_fx_rates is also modelled as a fact, to analyse the evolution of exchange rates.
+Different grains --> Products only exist at line level (Q1), while the time-of-day analysis needs one row per order (Q2).
+No lost orders --> 93 orders have no line items. Deriving orders from lines would silently drop 20% of them from Q2.
+Safe, additive measures--> With one grain per table, every measure can be summed directly.
+
+Rates as fact table: fct_fx_rates is also modelled as a fact, to analyse the evolution of exchange rates.
 
 Five dimension tables: dim_products, dim_customers, dim_currencies, dim_date and dim_hour. The date and hour dimensions are generated (not derived from the data) to make BI analysis easier: days and hours without sales appear explicitly with zero.
 
@@ -58,14 +60,12 @@ rpt_sales_by_hour	    Report     (Q2)	hour of day × day of week
 
 # 3. Currency normalization
 
-All revenue is converted to USD. Each rate is valid from its date until the next rate of the same currency, [valid_from, valid_to).
-The earliest rate per currency is extended backwards (valid_from = 1900-01-01) to cover orders placed before the first API response (55 orders, January–May 2024); those rows are flagged with is_fx_rate_backfilled. Orders join to rates with a range condition (order_date >= valid_from and order_date < valid_to), which is portable to any warehouse; DuckDB's ASOF JOIN would be an equivalent alternative.
+All revenue is converted to USD. Each rate is valid from its date until the next rate of the same currency
+The earliest rate per currency is extended backwards (1900-01-01) to cover orders placed before the first API response, those rows are flagged with is_fx_rate_backfilled. Orders join to rates with a range condition (order_date >= valid_from and order_date < valid_to), which is portable to any warehouse; DuckDB's ASOF JOIN would be an equivalent alternative.
 
 Conversion rules:
-
 Line revenue uses the line's currency, not the order header's: 114 lines have a different currency from their order.
 Invalid currencies (codes without any rate) get a NULL USD amount and is_valid_currency = false. They still count towards units and order counts, but are excluded from revenue: they are never converted with a guessed rate.
-A currency is considered valid when the FX API provides a rate for it.
 
 # 4. Data quality
 

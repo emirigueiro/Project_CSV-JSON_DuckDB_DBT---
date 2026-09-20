@@ -24,12 +24,12 @@ aggregated as (
 
     select
         product_id,
-        sum(quantity)                                           as units_sold,
-        count(*)                                                as order_lines,
-        count(distinct order_id)                                as orders,
-        count(*) filter (where is_valid_currency)               as order_lines_with_revenue,
+        sum(quantity)                       as units_sold,
+        count(*)                            as order_lines,
+        count(distinct order_id)                   as orders,
+        count(*) filter (where is_valid_currency) as order_lines_with_revenue,
         coalesce(sum(line_amount_usd), 0)                       as revenue_usd,
-        coalesce(sum(line_amount_usd_constant), 0)              as revenue_usd_constant,
+        coalesce(sum(line_amount_usd_constant), 0)  as revenue_usd_constant,
         sum(quantity) filter (where is_valid_currency)          as units_with_revenue
 
     from items
@@ -49,18 +49,14 @@ select
     aggregated.revenue_usd,
     aggregated.revenue_usd_constant,
     aggregated.revenue_usd - aggregated.revenue_usd_constant            as fx_effect_usd,
-    round(aggregated.revenue_usd / nullif(aggregated.units_with_revenue, 0), 2)
-                                                                        as avg_unit_price_usd,
-    round(aggregated.order_lines_with_revenue / aggregated.order_lines, 4)
-                                                                        as revenue_coverage_pct,
+    round(aggregated.revenue_usd / nullif(aggregated.units_with_revenue, 0), 2)  as avg_unit_price_usd,
+    round(aggregated.order_lines_with_revenue / aggregated.order_lines, 4)       as revenue_coverage_pct,
 
-    round(aggregated.units_sold / sum(aggregated.units_sold) over (), 4)
-                                                                        as share_of_units,
-    round(aggregated.revenue_usd / sum(aggregated.revenue_usd) over (), 4)
-                                                                        as share_of_revenue,
+    round(aggregated.units_sold / sum(aggregated.units_sold) over (), 4) as share_of_units,
+    round(aggregated.revenue_usd / sum(aggregated.revenue_usd) over (), 4)  as share_of_revenue,
 
-    rank() over (order by aggregated.units_sold desc)                   as rank_by_units,
-    rank() over (order by aggregated.revenue_usd desc)                  as rank_by_revenue
+    rank() over (order by aggregated.units_sold desc)     as rank_by_units,
+    rank() over (order by aggregated.revenue_usd desc)     as rank_by_revenue
 
 from aggregated
 join products

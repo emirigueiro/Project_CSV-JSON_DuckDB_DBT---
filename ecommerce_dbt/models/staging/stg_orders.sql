@@ -2,15 +2,9 @@
 
 
 
-with source as (
+with source as (select * from {{ source('raw', 'orders') }}),
 
-    select * from {{ source('raw', 'orders') }}
-
-),
-
-renamed as (
-
-    select
+renamed as (select
         cast(id as integer)                     as order_id,
         cast(customer_id as integer)            as customer_id,
         cast(order_date as timestamp)           as ordered_at,
@@ -20,8 +14,6 @@ renamed as (
         lower(trim(status))                     as order_status,
         _loaded_at
 
-    from source
-
-)
+    from source)
 
 select * from renamed

@@ -4,33 +4,17 @@
 -- No descarta filas: todos los joins son LEFT JOIN y el grano se protege con
 
 
-with order_items as (
+with order_items as (select * from {{ ref('stg_order_items') }}),
 
-    select * from {{ ref('stg_order_items') }}
+orders as (select * from {{ ref('stg_orders') }}),
 
-),
+products as (select * from {{ ref('stg_products') }}),
 
-orders as (
-
-    select * from {{ ref('stg_orders') }}
+fx_rates as (    select * from {{ ref('int_fx_rates_to_usd') }}
 
 ),
 
-products as (
-
-    select * from {{ ref('stg_products') }}
-
-),
-
-fx_rates as (
-
-    select * from {{ ref('int_fx_rates_to_usd') }}
-
-),
-
-joined as (
-
-    select
+joined as (  select
         order_items.order_item_id,
         order_items.order_id,
         order_items.product_id,
@@ -42,10 +26,10 @@ joined as (
         order_items.quantity,
         order_items.unit_price,
         order_items.currency_code,
-        orders.currency_code                            as order_currency_code,
+        orders.currency_code                         as order_currency_code,
         order_items.quantity * order_items.unit_price   as line_amount,
 
-        fx_rates.rate_to_usd                            as fx_rate_to_usd,
+        fx_rates.rate_to_usd  as fx_rate_to_usd,
         fx_rates.rate_date                              as fx_rate_date,
         fx_rates.fx_rate_source,
 
@@ -70,12 +54,12 @@ joined as (
 
 select
     *,
-    cast(line_amount * fx_rate_to_usd as decimal(18, 2))    as line_amount_usd,
+    cast(line_amount * fx_rate_to_usd as decimal(18, 2))  as line_amount_usd,
 
     -- Flags de calidad
-    fx_rate_to_usd is not null                              as is_valid_currency,
-    currency_code <> order_currency_code                    as is_currency_mismatch,
-    coalesce(order_date < fx_rate_date, false)              as is_fx_rate_backfilled,
-    order_status = 'completed'                              as is_revenue_eligible
+    fx_rate_to_usd is not null          as is_valid_currency,
+    currency_code <> order_currency_code            as is_currency_mismatch,
+    coalesce(order_date < fx_rate_date, false)        as is_fx_rate_backfilled,
+    order_status = 'completed'      as is_revenue_eligible
 
 from joined

@@ -2,15 +2,13 @@
 -- product_id NO es una FK garantizada en origen: se conserva tal cual y el
 -- test de relationships (severidad warn) documenta los productos huérfanos.
 
-with source as (
-
-    select * from {{ source('raw', 'order_items') }}
+with source as (select * from {{ source('raw', 'order_items') }}
 
 ),
 
 renamed as (
 
-    select
+select
         cast(id as integer)                     as order_item_id,
         cast(order_id as integer)               as order_id,
         cast(product_id as integer)             as product_id,
@@ -19,8 +17,7 @@ renamed as (
         upper(trim(currency))                   as currency_code,
         _loaded_at
 
-    from source
-
+from source
 )
 
 select * from renamed
