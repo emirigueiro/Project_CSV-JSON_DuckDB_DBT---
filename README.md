@@ -1,4 +1,4 @@
-# eCommerce Analytics Engineering Challenge
+# Project CSV/JSON - DuckDB - DBT
 
 An end-to-end analytics engineering pipeline that turns raw operational eCommerce data (CSV + JSON) into a clean, tested dbt warehouse on DuckDB, answering two business questions through a BI-ready reporting layer.
 
